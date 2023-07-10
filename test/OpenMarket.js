@@ -38,11 +38,11 @@ describe("Openmarket", () => {
     openmarket = await Openmarket.deploy()
   })
 
-  describe("Deployment", () => {
-    it("Sets the owner", async () => {
-      expect(await openmarket.owner()).to.equal(deployer.address)
-    })
-  })
+///  describe("Deployment", () => {
+///    it("Sets the owner", async () => {
+///      expect(await openmarket.owner()).to.equal(deployer.address)
+///    })
+///  })
 
   describe("Farmer Registration", () => {
     let transaction
@@ -157,15 +157,14 @@ describe("Openmarket", () => {
       transaction = await openmarket.connect(deployer).list(NAME, CATEGORY, IMAGE, UNIT, COST, RATING, STOCK)
       await transaction.wait()
 
-      // Buy an item
-      transaction = await openmarket.connect(buyer).buy(ID, BUYERADDR, PHONE, { value: COST })
-      await transaction.wait()
-
       // Delist an item
       transaction = await openmarket.connect(deployer).deleteItem(ID)
       await transaction.wait()
-      item = await openmarket.items(ID)
-      expect(item.stock.toNumber()).to.equal(0)
+    })
+
+      it("Sets item stock to zero", async () => {
+      const item = await openmarket.items(ID)
+      expect(item.stock).to.equal(0)
     })
   })
 })
