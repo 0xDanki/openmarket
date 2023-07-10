@@ -1,12 +1,12 @@
-#OpenMarket dApp
+# OpenMarket dApp
 OpenMarket is a decentralized marketplace that allows public market vendors and wholesalers to buy directly from local farmers. The local farmers can list their harvest to expedite the process of finding a buyer for their produce.
 
-##Libraries
+## Libraries
 
 Initializable
 Reentrancy Guard
 
-##State Variables
+## State Variables
 
 1. Item struct
 2. Order struct
@@ -16,12 +16,12 @@ Reentrancy Guard
 6. Orders per user mapping
 7. Private variables for counters
 
-##Modifiers
+## Modifiers
 
 1. onlyOwner
 2. onlyFarmer
 
-##Functions
+## Functions
 
 1. addFarmer - Registers a farmer. Only farmers can list an item
 2. list - creates a new Item and adds it to the items mapping. Only farmers can call this function
@@ -30,18 +30,18 @@ Reentrancy Guard
 	- require that item is in stock
 4. deleteItem - delists an item so it can no longer be bought. Only the seller of the item can call this function.
 
-##Unit Test Coverage (as of Feb 10, 2023)
+## Unit Test Coverage (as of Feb 10, 2023)
 
-Deployment
-    ✔ Sets the owner
-Farmer Registration
-    ✔ Returns farmer attributes
-    ✔ Emits FarmerRegistered event
-Listing
-    ✔ Returns item attributes
-    ✔ Emits List event
-Buying
-    ✔ Updates buyer's order count
-    ✔ Adds the order
-    ✔ Updates buyer and seller balances
-    ✔ Emits Buy event
+Deployment <br>
+    ✔ Sets the owner<br>
+Farmer Registration<br>
+    ✔ Returns farmer attributes<br>
+    ✔ Emits FarmerRegistered event<br>
+Listing<br>
+    ✔ Returns item attributes<br>
+    ✔ Emits List event<br>
+Buying<br>
+    ✔ Updates buyer's order count<br>
+    ✔ Adds the order<br>
+    ✔ Updates buyer and seller balances<br>
+    ✔ Emits Buy event<br>
